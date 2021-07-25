@@ -5,6 +5,7 @@ import com.example.itunesusingmvvm.Models.Netrork.API.Network
 import com.example.itunesusingmvvm.Models.Netrork.API.Resource
 import com.example.itunesusingmvvm.Models.Netrork.API.ResponseHandler
 import com.ravi.saveoassignment.model.MovieModel
+import com.ravi.saveoassignment.newModel.ResponseModel
 import retrofit2.Response
 
 class MovieRepository {
@@ -13,22 +14,8 @@ class MovieRepository {
         .create(apiClient::class.java)
     val responseHandler = ResponseHandler()
 
-
-
-    suspend fun getMovieList(): Resource<MovieModel> {
-        return try {
-            val response=api.getMovieListComedy()
-            responseHandler.handleSuccess(response)
-        } catch (e: Exception) {
-            responseHandler.handleException(e)
+    suspend fun getMovieList():Resource<ResponseModel>{
+            val data=api.getMovieListComedy()
+            return responseHandler.handleSuccess(data)
         }
     }
-    suspend fun getMovieList2(): Resource<MovieModel> {
-        return try {
-            val response=api.getMovieListAnimation()
-            responseHandler.handleSuccess(response)
-        } catch (e: Exception) {
-            responseHandler.handleException(e)
-        }
-    }
-}

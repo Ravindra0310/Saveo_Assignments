@@ -2,14 +2,15 @@ package com.example.guessmyage.Remote
 
 
 import com.ravi.saveoassignment.model.MovieModel
+import com.ravi.saveoassignment.newModel.ResponseModel
 import retrofit2.http.*
 
 interface apiClient {
 
-    @GET("search/shows?q=comedy")
-    suspend fun getMovieListComedy(): MovieModel
+    @GET("shows?page=1")
+    suspend fun getMovieListComedy(): ResponseModel
 
-    @GET("search/shows?q=Animation")
-    suspend fun getMovieListAnimation(): MovieModel
+    @GET("shows?page=2")
+    suspend fun getMovieListAnimation(): ResponseModel
 
 }

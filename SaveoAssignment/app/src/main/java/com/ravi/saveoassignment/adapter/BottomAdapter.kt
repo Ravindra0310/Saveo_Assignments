@@ -9,15 +9,16 @@ import com.ravi.saveoassignment.R
 import com.ravi.saveoassignment.model.MovieModel
 import com.ravi.saveoassignment.model.MovieModelItem
 import com.ravi.saveoassignment.model.Show
+import com.ravi.saveoassignment.newModel.ResponseItem
 import kotlinx.android.synthetic.main.bottom_item.view.*
 
 class BottomAdapter(
-    private var dataList: List<MovieModelItem>,
+    private var dataList: List<ResponseItem>,
 ) : RecyclerView.Adapter<BottomAdapter.BottomViewHolder>() {
 
     class BottomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun setData(movieModel: MovieModelItem) {
-            Glide.with(itemView.ivBottomItem).load(movieModel.show.image.medium)
+        fun setData(responseItem:  ResponseItem) {
+            Glide.with(itemView.ivBottomItem).load(responseItem.image.medium)
                 .into(itemView.ivBottomItem)
         }
     }

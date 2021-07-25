@@ -2,13 +2,14 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="100dp"
-    android:layout_height="150dp"
-    android:layout_margin="15dp"
+    android:layout_width="110dp"
+    android:layout_height="170dp"
+    android:layout_margin="10dp"
     android:elevation="50sp"
     tools:ignore="UnusedAttribute">
 
     <ImageView
+        android:scaleType="fitXY"
         android:id="@+id/ivBottomItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
