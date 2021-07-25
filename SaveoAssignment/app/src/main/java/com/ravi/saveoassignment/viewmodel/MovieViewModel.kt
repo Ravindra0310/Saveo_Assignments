@@ -8,11 +8,13 @@ import com.ravi.saveoassignment.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
 
 class MovieViewModel(val respository: MovieRepository) : ViewModel() {
+/*
+getting response from Repository
+ */
 
-
-    fun movieLiveData(): LiveData<ResponseModel>{
+    fun movieLiveData(num:Int): LiveData<ResponseModel>{
         return liveData(Dispatchers.IO){
-            val result=respository.getMovieList()
+            val result=respository.getMovieList(num)
             emit(result.data!!)
         }
     }

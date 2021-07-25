@@ -14,8 +14,8 @@ class MovieRepository {
         .create(apiClient::class.java)
     val responseHandler = ResponseHandler()
 
-    suspend fun getMovieList():Resource<ResponseModel>{
-            val data=api.getMovieListComedy()
+    suspend fun getMovieList( num:Int):Resource<ResponseModel>{
+            val data=api.getMovieListComedy(num)
             return responseHandler.handleSuccess(data)
         }
     }

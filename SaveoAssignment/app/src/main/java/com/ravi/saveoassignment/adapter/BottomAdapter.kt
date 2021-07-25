@@ -13,19 +13,22 @@ import com.ravi.saveoassignment.newModel.ResponseItem
 import kotlinx.android.synthetic.main.bottom_item.view.*
 
 class BottomAdapter(
-    private var dataList: List<ResponseItem>,
+    private var dataList: List<ResponseItem>,var onClickOfItem: OnClickOfItem
 ) : RecyclerView.Adapter<BottomAdapter.BottomViewHolder>() {
 
-    class BottomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class BottomViewHolder(itemView: View,var onClickOfItem: OnClickOfItem) : RecyclerView.ViewHolder(itemView) {
         fun setData(responseItem:  ResponseItem) {
             Glide.with(itemView.ivBottomItem).load(responseItem.image.medium)
                 .into(itemView.ivBottomItem)
+            itemView.ivBottomItem.setOnClickListener {
+                onClickOfItem.showDetails(responseItem,bindingAdapterPosition)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BottomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.bottom_item, parent, false)
-        return BottomViewHolder(view)
+        return BottomViewHolder(view,onClickOfItem)
     }
 
     override fun onBindViewHolder(holder: BottomViewHolder, position: Int) {

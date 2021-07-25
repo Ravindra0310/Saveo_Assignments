@@ -7,8 +7,8 @@ import retrofit2.http.*
 
 interface apiClient {
 
-    @GET("shows?page=1")
-    suspend fun getMovieListComedy(): ResponseModel
+    @GET("shows")
+    suspend fun getMovieListComedy(@Query("page") number:Int): ResponseModel
 
     @GET("shows?page=2")
     suspend fun getMovieListAnimation(): ResponseModel

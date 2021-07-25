@@ -2,4 +2,5 @@
     <string name="app_name">SaveoAssignment</string>
     <string name="now_showing">Now Showing</string>
     <string name="todo">TODO</string>
+    <string name="synopsis">Synopsis</string>
 </resources>
